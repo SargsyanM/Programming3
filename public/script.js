@@ -1,18 +1,7 @@
-function main() {
-    
-    
-    var socket = io.connect('http://localhost:3000');
+ var socket = io.connect('http://localhost:3000');
+var side = 20;
 
     socket.on("display message", function (matrix) {
-
-        function setup() {
-
-            frameRate(2);
-
-            createCanvas(matrix[0].length * side, matrix.length * side);
-            background("#E8E4E4");
-
-        }
 
         for (var y = 0; y < matrix.length; y++) {
             for (var x = 0; x < matrix[y].length; x++) {
@@ -57,12 +46,15 @@ function main() {
                 }
             }
         }
-    })
-}
 
+        
+    function setup() {
 
-window.onload = main;
+        frameRate(2);
 
+        createCanvas(matrix[0].length * side, matrix.length * side);
+        background("#E8E4E4");
 
+    }
 
-
+    });

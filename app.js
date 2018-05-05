@@ -13,10 +13,10 @@ var Mistics = require('./class/class.mistics.js');
 var Mistics = require('./class/class.hail.js');
  
 
-app.use(express.static("public"));
+app.use(express.static("./public"));
 
 app.get("/", function (req, res) {
-  res.redirect("public");
+    res.redirect("index.html");
 });
 
 app.listen(3000, function () {
@@ -36,7 +36,7 @@ Number.random = function (minimum, maximum, precision) {
 var r, temp;
 var m_size = 50;
 
- matrix = [];
+ global.matrix = [];
 for (var k = 0; k < m_size; k++) {
     matrix[k] = [];
 }
@@ -77,16 +77,16 @@ for (var i = 0; i < m_size; i++) {
 console.log(matrix);
 
 var side = 20;
-var grassArr = [];
-var xotaArr = [];
-var gishaArr = [];
-var fireArr = [];
-var humanArr = [];
-var mistArr = [];
-var hailArr = [];
+global.grassArr = [];
+global.xotaArr = [];
+global.gishaArr = [];
+global.fireArr = [];
+global.humanArr = [];
+global.mistArr = [];
+global.hailArr = [];
 
 
-for (var y = 0; y < matrix.length; y++)
+for (global. y = 0; y < matrix.length; y++)
         for (var x = 0; x < matrix[y].length; x++)
             if (matrix[y][x] == 1) {
                 var gr = new Grass(x, y);
