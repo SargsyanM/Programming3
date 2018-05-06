@@ -1,15 +1,16 @@
 /*ClasForHuman*/
 var LivingCreature = require("./parent.js");
+var random = require("./rand.js");
 
 module.exports = class Human extends LivingCreature {
-    constructor(x, y) {
-        super(x, y);
+    constructor(x, y, ser) {
+        super(x, y, ser);
         this.energy = 10;
     }
 
     sharjvel(ch) {
         this.stanalNorKordinatner();
-        var norVandak = Math.random(this.yntrelVandak(ch));
+        var norVandak = random(this.yntrelVandak(ch));
         if (norVandak) {
             matrix[this.y][this.x] = 0;
             this.x = norVandak[0];
@@ -19,11 +20,11 @@ module.exports = class Human extends LivingCreature {
     }
 
     utel() {
-        var norVandak = Math.random(this.yntrelVandak(1));
-        var norVandakDatark = Math.random(this.yntrelVandak(0));
-        var norVanXot = Math.random(this.yntrelVandak(2));
-        var newOne = Math.random(this.yntrelVandak(3));
-        var newTwo = Math.random(this.yntrelVandak(4));
+        var norVandak = random(this.yntrelVandak(1));
+        var norVandakDatark = random(this.yntrelVandak(0));
+        var norVanXot = random(this.yntrelVandak(2));
+        var newOne = random(this.yntrelVandak(3));
+        var newTwo = random(this.yntrelVandak(4));
 
         if (newOne) {
             this.sharjvel(3)

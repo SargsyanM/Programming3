@@ -6,20 +6,21 @@ var io = require('socket.io')(server);
 var Grass = require('./class/class.grass.js')
 var Xotaker = require('./class/class.eatgrass.js');
 var Fire = require('./class/class.fire.js');
-var Hail = require('./class/class.hail.js');
+
 var Human = require('./class/class.human.js');
 var Gishatich = require('./class/class.predator.js');
 var Mistics = require('./class/class.mistics.js');
-var Mistics = require('./class/class.hail.js');
+
+var random = require("./class/rand.js");
  
 
-app.use(express.static("./public"));
+app.use(express.static("."));
 
 app.get("/", function (req, res) {
-    res.redirect("index.html");
+    res.redirect("public/index.html");
 });
 
-app.listen(3000, function () {
+server.listen(3000, function () {
   console.log("Example is running on port 3000");
 });
 
@@ -34,14 +35,14 @@ Number.random = function (minimum, maximum, precision) {
 }
 
 var r, temp;
-var m_size = 50;
+var m_size = 25;
 
  global.matrix = [];
 for (var k = 0; k < m_size; k++) {
     matrix[k] = [];
 }
 
-var p = [10, 68, 5, 4, 3, 2, 4, 4]; //these are the percents of characters in the world
+var p = [10, 68, 5, 4, 4, 3, 6]; //these are the percents of characters in the world
 for (var i = 0; i < m_size; i++) {
     for (var j = 0; j < m_size; j++) {
         temp = Number.random(0, 100, 0);
@@ -65,9 +66,6 @@ for (var i = 0; i < m_size; i++) {
             matrix[i][j] = 6;
         }
 
-        else if (temp < 100 - -p[4] - p[5] - p[6]) {
-            matrix[i][j] = 7;
-        }
 
         else {
             matrix[i][j] = 5;
@@ -83,7 +81,7 @@ global.gishaArr = [];
 global.fireArr = [];
 global.humanArr = [];
 global.mistArr = [];
-global.hailArr = [];
+
 
 
 for (global. y = 0; y < matrix.length; y++)
@@ -93,11 +91,13 @@ for (global. y = 0; y < matrix.length; y++)
                 grassArr.push(gr);
             }
             else if (matrix[y][x] == 2) {
-                var eat = new Xotaker(x, y);
+                var r = (Math.round(Math.random()))/2;
+                var eat = new Xotaker(x, y, r);
                 xotaArr.push(eat);
             }
             else if (matrix[y][x] == 3) {
-                var eate = new Gishatich(x, y);
+                var r = (Math.round(Math.random()))/2;
+                var eate = new Gishatich(x, y, r);
                 gishaArr.push(eate);
             }
 
@@ -107,7 +107,8 @@ for (global. y = 0; y < matrix.length; y++)
             }
 
             else if (matrix[y][x] == 5) {
-                var mard = new Human(x, y);
+                var r = (Math.round(Math.random()))/2;
+                var mard = new Human(x, y, r);
                 humanArr.push(mard);
             }
 
@@ -116,10 +117,7 @@ for (global. y = 0; y < matrix.length; y++)
                 mistArr.push(mistics);
             }
 
-            else if (matrix[y][x] == 7) {
-                var hail = new Hail(x, y);
-                hailArr.push(hail);
-            }
+            
 
 
 io.on('connection', function(socket){
@@ -153,17 +151,13 @@ io.on('connection', function(socket){
     }
 
     for (var l in mistArr) {
+        
         mistArr[l].utel();
         mistArr[l].mahanal();
     }
 
     
-    if(frameCount % 5 == 0)
-    {
-        for (var o in hailArr) {
-            hailArr[o].hit();
-        }
-    }
+
 
     io.sockets.emit("display message", matrix);
 

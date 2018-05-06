@@ -1,7 +1,9 @@
 /*ClasForMistics*/
 var LivingCreature = require("./parent.js");
+var random = require("./rand.js");
 
-class Mistics extends LivingCreature {
+
+module.exports=class Mistics extends LivingCreature {
     constructor(x, y) {
         super(x, y);
         this.energy = 10;
@@ -10,7 +12,7 @@ class Mistics extends LivingCreature {
     sharjvel(ch) {
         this.stanalNorKordinatner();
         
-            var norVandak = Math.random(this.yntrelVandak(ch));
+            var norVandak = random(this.yntrelVandak(ch));
 
             if (norVandak) {
                 matrix[this.y][this.x] = 0;
@@ -21,12 +23,12 @@ class Mistics extends LivingCreature {
     }
 
     utel() {
-        var norVandak = Math.random(this.yntrelVandak(1));
-        var norVandakDatark = Math.random(this.yntrelVandak(0));
-        var norVanXot = Math.random(this.yntrelVandak(2));
-        var newOne = Math.random(this.yntrelVandak(3));
-        var newTwo = Math.random(this.yntrelVandak(4));
-        var newThree = Math.random(this.yntrelVandak(5));
+        var norVandak = random(this.yntrelVandak(1));
+        var norVandakDatark = random(this.yntrelVandak(0));
+        var norVanXot = random(this.yntrelVandak(2));
+        var newOne = random(this.yntrelVandak(3));
+        var newTwo = random(this.yntrelVandak(4));
+        var newThree = random(this.yntrelVandak(5));
 
         if (newOne) {
             this.sharjvel(3)

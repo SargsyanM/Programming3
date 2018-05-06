@@ -1,10 +1,10 @@
 /*ClassforLivingCreature*/
 module.exports = class LivingCreature {
-    constructor(x, y) {
+    constructor(x, y, ser) {
         this.x = x;
         this.y = y;
-        
         this.directions = [];
+        this.ser = (ser == 0 ? "arakan" : "igakan");
 
     }
 

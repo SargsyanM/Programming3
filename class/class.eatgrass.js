@@ -1,15 +1,16 @@
 /*ClassForXotaker*/
 var LivingCreature = require("./parent.js");
+var random = require("./rand.js");
 
 module.exports = class Xotaker extends LivingCreature {
-    constructor(x, y) {
-        super(x, y);
+    constructor(x, y, ser) {
+        super(x, y, ser);
         this.energy = 5;
     }
 
     sharjvel(ch) {
         this.stanalNorKordinatner();
-        var norVandak = Math.random(this.yntrelVandak(ch));
+        var norVandak = random(this.yntrelVandak(ch));
         if (norVandak) {
             matrix[this.y][this.x] = 0;
             this.x = norVandak[0];
@@ -19,8 +20,8 @@ module.exports = class Xotaker extends LivingCreature {
     }
 
     utel() {
-        var norVandak = Math.random(this.yntrelVandak(1));
-        var norVandakDatark = Math.random(this.yntrelVandak(0));
+        var norVandak = random(this.yntrelVandak(1));
+        var norVandakDatark = random(this.yntrelVandak(0));
         if (norVandak) {
             this.sharjvel(1)
 
@@ -40,12 +41,17 @@ module.exports = class Xotaker extends LivingCreature {
 
 
     bazmanal() {
-        var norVandak = Math.random(this.yntrelVandak(0));
+        if (this.ser == "arakan") {
+            var vandak = random(this.yntrelVandak(2.5))
+            if (vandak) {
+                var norVandak = random(this.yntrelVandak(0))        
+            }
         if (this.energy >= 5 && norVandak) {
             var norXotaker = new Xotaker(norVandak[0], norVandak[1]);
             xotaArr.push(norXotaker);
             matrix[norVandak[1]][norVandak[0]] = 2;
         }
+    }
     }
 
     mahanal() {

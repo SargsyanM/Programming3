@@ -1,15 +1,16 @@
 /*ClassForGishatich*/
 var LivingCreature = require("./parent.js");
+var random = require("./rand.js");
 
 module.exports = class Gishatich extends LivingCreature {
-    constructor(x, y) {
-        super(x, y);
+    constructor(x, y, ser) {
+        super(x, y, ser);
         this.energy = 5;
     }
 
     sharjvel(ch) {
         this.stanalNorKordinatner();
-        var norVandak = Math.random(this.yntrelVandak(ch));
+        var norVandak = random(this.yntrelVandak(ch));
         if (norVandak) {
             matrix[this.y][this.x] = 0;
             this.x = norVandak[0];
@@ -19,9 +20,9 @@ module.exports = class Gishatich extends LivingCreature {
     }
 
     utel() {
-        var norVandak = Math.random(this.yntrelVandak(1));
-        var norVandakDatark = Math.random(this.yntrelVandak(0));
-        var norVanXot = Math.random(this.yntrelVandak(2))
+        var norVandak = random(this.yntrelVandak(1));
+        var norVandakDatark = random(this.yntrelVandak(0));
+        var norVanXot = random(this.yntrelVandak(2))
         if (norVanXot) {
             this.sharjvel(2)
             for (var i in xotaArr) {
@@ -53,11 +54,16 @@ module.exports = class Gishatich extends LivingCreature {
 
 
     bazmanal() {
-        var norVandak = Math.random(this.yntrelVandak(0));
-        if (this.energy >= 10 && norVandak) {
-            var norGishatich = new Gishatich(norVandak[0], norVandak[1]);
-            gishaArr.push(norGishatich);
-            matrix[norVandak[1]][norVandak[0]] = 3;
+        if (this.ser == "arakan") {
+            var vandak = random(this.yntrelVandak(2.5))
+            if (vandak) {
+                var norVandak = random(this.yntrelVandak(0))
+            }
+            if (this.energy >= 10 && norVandak) {
+                var norGishatich = new Gishatich(norVandak[0], norVandak[1]);
+                gishaArr.push(norGishatich);
+                matrix[norVandak[1]][norVandak[0]] = 3;
+            }
         }
     }
 
