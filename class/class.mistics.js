@@ -3,7 +3,7 @@ var LivingCreature = require("./parent.js");
 var random = require("./rand.js");
 
 
-module.exports=class Mistics extends LivingCreature {
+module.exports = class Mistics extends LivingCreature {
     constructor(x, y) {
         super(x, y);
         this.energy = 10;
@@ -11,15 +11,13 @@ module.exports=class Mistics extends LivingCreature {
 
     sharjvel(ch) {
         this.stanalNorKordinatner();
-        
-            var norVandak = random(this.yntrelVandak(ch));
-
-            if (norVandak) {
-                matrix[this.y][this.x] = 0;
-                this.x = norVandak[0];
-                this.y = norVandak[1];
-                matrix[this.y][this.x] = 6;
-            }
+        var norVandak = random(this.yntrelVandak(ch));
+        if (norVandak) {
+            matrix[this.y][this.x] = 0;
+            this.x = norVandak[0];
+            this.y = norVandak[1];
+            matrix[this.y][this.x] = 6;
+        }
     }
 
     utel() {

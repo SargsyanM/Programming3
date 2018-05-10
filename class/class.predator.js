@@ -28,7 +28,7 @@ module.exports = class Gishatich extends LivingCreature {
             for (var i in xotaArr) {
                 if (this.x == xotaArr[i].x && this.y == xotaArr[i].y) {
                     xotaArr.splice(i, 1);
-                    this.energy += 2;
+                    this.energy ++
                     break;
                 }
             }

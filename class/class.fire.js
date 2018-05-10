@@ -30,4 +30,13 @@ module.exports = class Fire extends LivingCreature{
 
     }
 
+    hangel(){
+        for (var i in fireArr) {
+            if (this.energy <= 4 && this.x == fireArr[i].x && this.y == fireArr[i].y) {
+                matrix[this.y][this.x] = 0;
+                fireArr.splice(i, 1);
+            }
+        }
+    }
+
 }

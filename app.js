@@ -6,11 +6,9 @@ var io = require('socket.io')(server);
 var Grass = require('./class/class.grass.js')
 var Xotaker = require('./class/class.eatgrass.js');
 var Fire = require('./class/class.fire.js');
-
 var Human = require('./class/class.human.js');
 var Gishatich = require('./class/class.predator.js');
 var Mistics = require('./class/class.mistics.js');
-
 var random = require("./class/rand.js");
  
 
@@ -66,7 +64,6 @@ for (var i = 0; i < m_size; i++) {
             matrix[i][j] = 6;
         }
 
-
         else {
             matrix[i][j] = 5;
         }
@@ -82,23 +79,28 @@ global.fireArr = [];
 global.humanArr = [];
 global.mistArr = [];
 
-
+var numgrass = 0;
+var numpred = 0 ;
+var numeat = 0;
 
 for (global. y = 0; y < matrix.length; y++)
         for (var x = 0; x < matrix[y].length; x++)
             if (matrix[y][x] == 1) {
                 var gr = new Grass(x, y);
                 grassArr.push(gr);
+                numgrass++;
             }
             else if (matrix[y][x] == 2) {
                 var r = (Math.round(Math.random()))/2;
                 var eat = new Xotaker(x, y, r);
                 xotaArr.push(eat);
+                numeat++;
             }
             else if (matrix[y][x] == 3) {
                 var r = (Math.round(Math.random()))/2;
                 var eate = new Gishatich(x, y, r);
                 gishaArr.push(eate);
+                numpred++;
             }
 
             else if (matrix[y][x] == 4) {
@@ -115,14 +117,17 @@ for (global. y = 0; y < matrix.length; y++)
             else if (matrix[y][x] == 6) {
                 var mistics = new Mistics(x, y);
                 mistArr.push(mistics);
-            }
-
-            
+            } 
 
 
 io.on('connection', function(socket){
 
   setInterval(function(){
+
+    if (humanArr.length == 0) {
+        io.sockets.emit('end');
+    }
+
     for (var i in grassArr) {
         grassArr[i].bazmanal();
     }
@@ -142,7 +147,7 @@ io.on('connection', function(socket){
 
     for (var m in fireArr) {
         fireArr[m].varel();
-
+        fireArr[m].hangel();
     }
 
     for (var n in humanArr) {
@@ -156,11 +161,18 @@ io.on('connection', function(socket){
         mistArr[l].mahanal();
     }
 
-    
-
-
     io.sockets.emit("display message", matrix);
 
   }, 1000)
  
 });
+
+
+//JSON
+
+var fs = require('fs');
+
+  if(true){
+   var file  = "statics.txt";
+    fs.appendFileSync(file,numgrass + "-This is the Number of Grasses" + '\n' + numeat + "- This is the Number of Grasseaters" + '\n' + numpred + "-This is the Number of Predators");
+  }   

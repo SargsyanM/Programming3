@@ -1,5 +1,6 @@
 var socket = io.connect('http://localhost:3000');
 var side = 20;
+//var e = 0;
 
 function setup() {
     createCanvas(500, 500);
@@ -56,3 +57,17 @@ socket.on("display message", function (matrix) {
 
 
 });
+
+socket.on('end', function () {
+   
+   // if(e == 0){
+    console.log("done");
+    remove();
+    var oImg = document.createElement("img");
+    oImg.setAttribute('src', 'https://fanart.tv/fanart/tv/78871/clearlogo/gameover-78871.png');
+    document.body.appendChild(oImg);
+      e++;
+//}
+ 
+});
+
