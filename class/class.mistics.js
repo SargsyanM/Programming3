@@ -6,17 +6,19 @@ var random = require("./rand.js");
 module.exports = class Mistics extends LivingCreature {
     constructor(x, y) {
         super(x, y);
-        this.energy = 10;
+        this.energy = 5;
     }
 
     sharjvel(ch) {
         this.stanalNorKordinatner();
-        var norVandak = random(this.yntrelVandak(ch));
+        var norVandak = this.yntrelVandak(ch);
         if (norVandak) {
             matrix[this.y][this.x] = 0;
-            this.x = norVandak[0];
-            this.y = norVandak[1];
-            matrix[this.y][this.x] = 6;
+            for (var i in norVandak) {                
+                this.x = norVandak[i][0];
+                this.y = norVandak[i][1];
+                matrix[this.y][this.x] = 6;
+            }
         }
     }
 
@@ -34,7 +36,7 @@ module.exports = class Mistics extends LivingCreature {
             for (var i in gishaArr) {
                 if (this.x == gishaArr[i].x && this.y == gishaArr[i].y) {
                     this.energy -= 3;
-                    gishaArr[i].energy -= 3;
+                    gishaArr[i].energy -= 4;
                     break;
                 }
             }
@@ -46,7 +48,7 @@ module.exports = class Mistics extends LivingCreature {
             for (var i in xotaArr) {
                 if (this.x == xotaArr[i].x && this.y == xotaArr[i].y) {
                     xotaArr.splice(i, 1);
-                    this.energy += 3;
+                    this.energy += 2;
                     break;
                 }
             }
@@ -70,7 +72,7 @@ module.exports = class Mistics extends LivingCreature {
             for (var i in fireArr) {
                 if (this.x == fireArr[i].x && this.y == fireArr[i].y) {
                     fireArr.splice(i, 1);
-                    this.energy -= 2;
+                    this.energy -= 3;
                     break;
                 }
             }
@@ -82,7 +84,7 @@ module.exports = class Mistics extends LivingCreature {
             for (var i in fireArr) {
                 if (this.x == humanArr[i].x && this.y == humanArr[i].y) {
                     humanArr.splice(i, 1);
-                    this.energy -= 2;
+                    this.energy -= 3;
                     break;
                 }
             }

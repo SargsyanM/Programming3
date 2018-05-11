@@ -15,7 +15,13 @@ module.exports = class Xotaker extends LivingCreature {
             matrix[this.y][this.x] = 0;
             this.x = norVandak[0];
             this.y = norVandak[1];
-            matrix[this.y][this.x] = 2;
+
+            if (this.ser == "arakan") {
+               matrix[this.y][this.x] = 2; 
+            }
+            else{
+                matrix[this.y][this.x] = 2.5;
+            }
         }
     }
 

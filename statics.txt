@@ -1,0 +1,45 @@
+420-This is the Number of Grasses
+38- This is the Number of Grasseaters
+31-This is the Number of Predators433-This is the Number of Grasses
+30- This is the Number of Grasseaters
+25-This is the Number of Predators440-This is the Number of Grasses
+31- This is the Number of Grasseaters
+25-This is the Number of Predators432-This is the Number of Grasses
+39- This is the Number of Grasseaters
+25-This is the Number of Predators437-This is the Number of Grasses
+40- This is the Number of Grasseaters
+23-This is the Number of Predators443-This is the Number of Grasses
+36- This is the Number of Grasseaters
+15-This is the Number of Predators419-This is the Number of Grasses
+28- This is the Number of Grasseaters
+20-This is the Number of Predators418-This is the Number of Grasses
+36- This is the Number of Grasseaters
+16-This is the Number of Predators423-This is the Number of Grasses
+30- This is the Number of Grasseaters
+21-This is the Number of Predators418-This is the Number of Grasses
+26- This is the Number of Grasseaters
+25-This is the Number of Predators427-This is the Number of Grasses
+37- This is the Number of Grasseaters
+26-This is the Number of Predators420-This is the Number of Grasses
+38- This is the Number of Grasseaters
+23-This is the Number of Predators403-This is the Number of Grasses
+29- This is the Number of Grasseaters
+22-This is the Number of Predators436-This is the Number of Grasses
+25- This is the Number of Grasseaters
+20-This is the Number of Predators423-This is the Number of Grasses
+37- This is the Number of Grasseaters
+19-This is the Number of Predators420-This is the Number of Grasses
+36- This is the Number of Grasseaters
+22-This is the Number of Predators434-This is the Number of Grasses
+29- This is the Number of Grasseaters
+20-This is the Number of Predators427-This is the Number of Grasses
+28- This is the Number of Grasseaters
+26-This is the Number of Predators421-This is the Number of Grasses
+35- This is the Number of Grasseaters
+19-This is the Number of Predators418-This is the Number of Grasses
+37- This is the Number of Grasseaters
+26-This is the Number of Predators415-This is the Number of Grasses
+38- This is the Number of Grasseaters
+37-This is the Number of Predators395-This is the Number of Grasses
+42- This is the Number of Grasseaters
+28-This is the Number of Predators

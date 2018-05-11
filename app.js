@@ -92,6 +92,7 @@ for (global. y = 0; y < matrix.length; y++)
             }
             else if (matrix[y][x] == 2) {
                 var r = (Math.round(Math.random()))/2;
+                matrix[y][x]+=r;
                 var eat = new Xotaker(x, y, r);
                 xotaArr.push(eat);
                 numeat++;
@@ -99,6 +100,7 @@ for (global. y = 0; y < matrix.length; y++)
             else if (matrix[y][x] == 3) {
                 var r = (Math.round(Math.random()))/2;
                 var eate = new Gishatich(x, y, r);
+                matrix[y][x]+=r;
                 gishaArr.push(eate);
                 numpred++;
             }
@@ -114,10 +116,10 @@ for (global. y = 0; y < matrix.length; y++)
                 humanArr.push(mard);
             }
 
-            else if (matrix[y][x] == 6) {
-                var mistics = new Mistics(x, y);
-                mistArr.push(mistics);
-            } 
+            // else if (matrix[y][x] == 6) {
+            //     var mistics = new Mistics(x, y);
+            //     mistArr.push(mistics);
+            // } 
 
 
 io.on('connection', function(socket){
@@ -155,11 +157,11 @@ io.on('connection', function(socket){
         humanArr[n].mahanal();
     }
 
-    for (var l in mistArr) {
+    // for (var l in mistArr) {
         
-        mistArr[l].utel();
-        mistArr[l].mahanal();
-    }
+    //     mistArr[l].utel();
+    //     mistArr[l].mahanal();
+    // }
 
     io.sockets.emit("display message", matrix);
 

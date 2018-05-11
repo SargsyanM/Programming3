@@ -1,6 +1,7 @@
 var socket = io.connect('http://localhost:3000');
 var side = 20;
-//var e = 0;
+var e = 0;
+
 
 function setup() {
     createCanvas(500, 500);
@@ -32,6 +33,8 @@ socket.on("display message", function (matrix) {
                 rect(x * side, y * side, side, side);
             }
 
+            
+
             else if (matrix[y][x] == 4) {
                 fill("#DF0D0D");
                 rect(x * side, y * side, side, side);
@@ -42,32 +45,32 @@ socket.on("display message", function (matrix) {
                 rect(x * side, y * side, side, side);
             }
 
-            else if (matrix[y][x] == 6) {
-                fill("black");
-                rect(x * side, y * side, side, side);
-            }
+            // else if (matrix[y][x] == 6) {
+            //     fill("purple");
+            //     rect(x * side, y * side, side, side);
+            // }
 
             else if (matrix[y][x] == 7) {
                 fill("white");
                 rect(x * side, y * side, side, side);
             }
         }
-
     }
-
 
 });
 
 socket.on('end', function () {
-   
-   // if(e == 0){
-    console.log("done");
+    if (e==0) {
+            console.log("done");
     remove();
-    var oImg = document.createElement("img");
-    oImg.setAttribute('src', 'https://fanart.tv/fanart/tv/78871/clearlogo/gameover-78871.png');
-    document.body.appendChild(oImg);
+    var Dend = document.createElement("img");
+    Dend.setAttribute('src', 'https://fanart.tv/fanart/tv/78871/clearlogo/gameover-78871.png');
+    document.body.appendChild(Dend);
       e++;
-//}
  
+    }
+
+   
+
 });
 

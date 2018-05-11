@@ -15,7 +15,13 @@ module.exports = class Gishatich extends LivingCreature {
             matrix[this.y][this.x] = 0;
             this.x = norVandak[0];
             this.y = norVandak[1];
-            matrix[this.y][this.x] = 3;
+            if (this.ser == "arakan") {
+               matrix[this.y][this.x] = 3; 
+            }
+            else{
+                matrix[this.y][this.x] = 3.5;
+            }
+            
         }
     }
 

@@ -25,6 +25,7 @@ module.exports = class Human extends LivingCreature {
         var norVanXot = random(this.yntrelVandak(2));
         var newOne = random(this.yntrelVandak(3));
         var newTwo = random(this.yntrelVandak(4));
+        var newMist = random(this.yntrelVandak(6));
 
         if (newOne) {
             this.sharjvel(3)
@@ -73,6 +74,19 @@ module.exports = class Human extends LivingCreature {
                 }
             }
         }
+
+        //  else if (newMist) {
+        //     this.sharjvel(6)
+
+        //     for (var i in mistArr) {
+        //         if (this.x == mistArr[i].x && this.y == msitArr[i].y) {
+        //             mistArr.splice(i, 1);
+        //             this.energy -= 4;
+        //             break;
+        //         }
+        //     }
+        // }
+
 
         else if (norVandakDatark) {
             this.sharjvel(0);
