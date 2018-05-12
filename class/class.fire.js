@@ -8,6 +8,8 @@ module.exports = class Fire extends LivingCreature{
         this.energy = 5;
     }
 
+
+
     varel() {
         this.stanalNorKordinatner();
         for (var j = 0; j < 3; j++) {

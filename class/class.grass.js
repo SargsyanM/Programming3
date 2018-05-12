@@ -8,6 +8,8 @@ constructor(x,y){
     this.multiply = Math.round(Math.random() * 3);
 }
 
+
+
     bazmanal() {
         this.multiply++;
         var norVandak = random(this.yntrelVandak(0));

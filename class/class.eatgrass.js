@@ -8,6 +8,8 @@ module.exports = class Xotaker extends LivingCreature {
         this.energy = 5;
     }
 
+    
+
     sharjvel(ch) {
         this.stanalNorKordinatner();
         var norVandak = random(this.yntrelVandak(ch));

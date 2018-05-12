@@ -8,6 +8,8 @@ module.exports = class Human extends LivingCreature {
         this.energy = 10;
     }
 
+    
+
     sharjvel(ch) {
         this.stanalNorKordinatner();
         var norVandak = random(this.yntrelVandak(ch));

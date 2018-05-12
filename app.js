@@ -9,6 +9,7 @@ var Fire = require('./class/class.fire.js');
 var Human = require('./class/class.human.js');
 var Gishatich = require('./class/class.predator.js');
 var Mistics = require('./class/class.mistics.js');
+var Hail = require('./class/class.hail.js');
 var random = require("./class/rand.js");
  
 
@@ -40,7 +41,7 @@ for (var k = 0; k < m_size; k++) {
     matrix[k] = [];
 }
 
-var p = [10, 68, 5, 4, 4, 3, 6]; //these are the percents of characters in the world
+var p = [10, 68, 5, 4, 3, 2, 4, 4]; //these are the percents of characters in the world
 for (var i = 0; i < m_size; i++) {
     for (var j = 0; j < m_size; j++) {
         temp = Number.random(0, 100, 0);
@@ -51,10 +52,10 @@ for (var i = 0; i < m_size; i++) {
             matrix[i][j] = 1;
         }
         else if (temp < p[0] + p[1] + p[2]) {
-            matrix[i][j] = 2;
+            matrix[i][j] = 2 ;
         }
         else if (temp < p[0] + p[1] + p[2] + p[3]) {
-            matrix[i][j] = 3;
+            matrix[i][j] = 3 ;
         }
         else if (temp < 100 - p[3] - p[4]) {
             matrix[i][j] = 4;
@@ -64,11 +65,16 @@ for (var i = 0; i < m_size; i++) {
             matrix[i][j] = 6;
         }
 
+        // else if (temp < 100 - -p[4] - p[5] - p[6]) {
+        //     matrix[i][j] = 7;
+        // }
+
         else {
             matrix[i][j] = 5;
         }
     }
 }
+
 console.log(matrix);
 
 var side = 20;
@@ -78,6 +84,7 @@ global.gishaArr = [];
 global.fireArr = [];
 global.humanArr = [];
 global.mistArr = [];
+//global.hailArr = [];
 
 var numgrass = 0;
 var numpred = 0 ;
@@ -116,9 +123,14 @@ for (global. y = 0; y < matrix.length; y++)
                 humanArr.push(mard);
             }
 
-            // else if (matrix[y][x] == 6) {
-            //     var mistics = new Mistics(x, y);
-            //     mistArr.push(mistics);
+            else if (matrix[y][x] == 6) {
+                var mistics = new Mistics(x, y);
+                mistArr.push(mistics);
+            } 
+
+            // else if (matrix[y][x] == 7) {
+            //     var karkut = new Hail(x, y);
+            //     mistArr.push(karkut);
             // } 
 
 
@@ -157,11 +169,11 @@ io.on('connection', function(socket){
         humanArr[n].mahanal();
     }
 
-    // for (var l in mistArr) {
+    for (var l in mistArr) {
         
-    //     mistArr[l].utel();
-    //     mistArr[l].mahanal();
-    // }
+        mistArr[l].utel();
+        mistArr[l].mahanal();
+    }
 
     io.sockets.emit("display message", matrix);
 

@@ -45,10 +45,10 @@ socket.on("display message", function (matrix) {
                 rect(x * side, y * side, side, side);
             }
 
-            // else if (matrix[y][x] == 6) {
-            //     fill("purple");
-            //     rect(x * side, y * side, side, side);
-            // }
+            else if (matrix[y][x] == 6) {
+                fill("purple");
+                rect(x * side, y * side, side, side);
+            }
 
             else if (matrix[y][x] == 7) {
                 fill("white");
