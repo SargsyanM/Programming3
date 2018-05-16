@@ -31,9 +31,7 @@ socket.on("display message", function (matrix) {
             else if (matrix[y][x] == 3) {
                 fill("#FA813B  ");
                 rect(x * side, y * side, side, side);
-            }
-
-            
+            }     
 
             else if (matrix[y][x] == 4) {
                 fill("#DF0D0D");
@@ -68,9 +66,7 @@ socket.on('end', function () {
     document.body.appendChild(Dend);
       e++;
  
-    }
-
-   
+    } 
 
 });
 

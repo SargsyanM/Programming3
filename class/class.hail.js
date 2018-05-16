@@ -5,8 +5,8 @@ var random = require("./rand.js");
 
 module.exports = class Hail {
     constructor(x, y) {
-        this.x = x || round(random(matrix[0].length));
-        this.y = y || round(random(matrix.length));
+        this.x = x || Math.round(random(matrix[0].length));
+        this.y = y || Math.round(random(matrix.length));
     }
 
     
@@ -15,9 +15,9 @@ module.exports = class Hail {
         for (var i in hailArr) {
              matrix[this.y][this.x] = 0;
         }
-
-        this.x = round(random(matrix[0].length-1))
-        this.y = round(random(matrix.length-1));
+       
+        this.x = Math.round(random(matrix[0].length-1))
+        this.y = Math.round(random(matrix.length-1));
         matrix[this.y][this.x] = 7;
 
         console.log(this.x, this.y)

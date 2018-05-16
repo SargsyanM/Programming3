@@ -65,9 +65,9 @@ for (var i = 0; i < m_size; i++) {
             matrix[i][j] = 6;
         }
 
-        // else if (temp < 100 - -p[4] - p[5] - p[6]) {
-        //     matrix[i][j] = 7;
-        // }
+        else if (temp < 100 - -p[4] - p[5] - p[6]) {
+            matrix[i][j] = 7;
+        }
 
         else {
             matrix[i][j] = 5;
@@ -84,7 +84,7 @@ global.gishaArr = [];
 global.fireArr = [];
 global.humanArr = [];
 global.mistArr = [];
-//global.hailArr = [];
+global.hailArr = [];
 
 var numgrass = 0;
 var numpred = 0 ;
@@ -128,10 +128,10 @@ for (global. y = 0; y < matrix.length; y++)
                 mistArr.push(mistics);
             } 
 
-            // else if (matrix[y][x] == 7) {
-            //     var karkut = new Hail(x, y);
-            //     mistArr.push(karkut);
-            // } 
+            else if (matrix[y][x] == 7) {
+                var karkut = new Hail(x, y);
+                hailArr.push(karkut);
+            } 
 
 
 io.on('connection', function(socket){
@@ -173,6 +173,14 @@ io.on('connection', function(socket){
         
         mistArr[l].utel();
         mistArr[l].mahanal();
+    }
+
+    for (var o in hailArr) {
+        for (var i = 0; i < hailArr.length; i++) {
+            if (i%4==0) {
+                hailArr[o].hit();
+            }     
+        }
     }
 
     io.sockets.emit("display message", matrix);
