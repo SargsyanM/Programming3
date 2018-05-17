@@ -8,7 +8,7 @@ module.exports = class LivingCreature {
 
     }
 
-    stanalNorKordinatner() {
+    getNewCoordinates() {
         this.directions = [
             [this.x - 1, this.y - 1],
             [this.x, this.y - 1],
@@ -21,8 +21,8 @@ module.exports = class LivingCreature {
         ];
     }
 
-    yntrelVandak(ch) {
-        this.stanalNorKordinatner();
+    chooseTile(ch) {
+        this.getNewCoordinates();
         var found = [];
         for (var i in this.directions) {
             var x = this.directions[i][0];

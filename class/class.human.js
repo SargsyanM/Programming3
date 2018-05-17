@@ -10,51 +10,51 @@ module.exports = class Human extends LivingCreature {
 
     
 
-    sharjvel(ch) {
-        this.stanalNorKordinatner();
-        var norVandak = random(this.yntrelVandak(ch));
-        if (norVandak) {
+    move(ch) {
+        this.getNewCoordinates();
+        var newTile = random(this.chooseTile(ch));
+        if (newTile) {
             matrix[this.y][this.x] = 0;
-            this.x = norVandak[0];
-            this.y = norVandak[1];
+            this.x = newTile[0];
+            this.y = newTile[1];
             matrix[this.y][this.x] = 5;
         }
     }
 
-    utel() {
-        var norVandak = random(this.yntrelVandak(1));
-        var norVandakDatark = random(this.yntrelVandak(0));
-        var norVanXot = random(this.yntrelVandak(2));
-        var newOne = random(this.yntrelVandak(3));
-        var newTwo = random(this.yntrelVandak(4));
-        var newMist = random(this.yntrelVandak(6));
+    eat() {
+        var newTile = random(this.chooseTile(1));
+        var newTileDatark = random(this.chooseTile(0));
+        var norVanXot = random(this.chooseTile(2));
+        var newOne = random(this.chooseTile(3));
+        var newTwo = random(this.chooseTile(4));
+        var newMist = random(this.chooseTile(6));
 
         if (newOne) {
-            this.sharjvel(3)
+            this.move(3)
 
-            for (var i in gishaArr) {
-                if (this.x == gishaArr[i].x && this.y == gishaArr[i].y) {
+            for (var i in predArr) {
+                if (this.x == predArr[i].x && this.y == predArr[i].y) {
                     this.energy -= 3;
-                    gishaArr[i].energy -= 3;
+                    predArr[i].energy -= 3;
                     break;
                 }
             }
         }
 
         else if (norVanXot) {
-            this.sharjvel(2)
+            this.move(2)
 
-            for (var i in xotaArr) {
-                if (this.x == xotaArr[i].x && this.y == xotaArr[i].y) {
-                    xotaArr.splice(i, 1);
+            for (var i in g_eArr) {
+                if (this.x == g_eArr[i].x && this.y == g_eArr[i].y) {
+                    g_eArr.splice(i, 1);
                     this.energy += 3;
                     break;
                 }
             }
         }
 
-        else if (norVandak) {
-            this.sharjvel(1)
+        else if (newTile) {
+            this.move(1)
 
             for (var i in grassArr) {
                 if (this.x == grassArr[i].x && this.y == grassArr[i].y) {
@@ -66,7 +66,7 @@ module.exports = class Human extends LivingCreature {
         }
 
         else if (newTwo) {
-            this.sharjvel(4)
+            this.move(4)
 
             for (var i in fireArr) {
                 if (this.x == fireArr[i].x && this.y == fireArr[i].y) {
@@ -78,7 +78,7 @@ module.exports = class Human extends LivingCreature {
         }
 
         //  else if (newMist) {
-        //     this.sharjvel(6)
+        //     this.move(6)
 
         //     for (var i in mistArr) {
         //         if (this.x == mistArr[i].x && this.y == msitArr[i].y) {
@@ -90,13 +90,13 @@ module.exports = class Human extends LivingCreature {
         // }
 
 
-        else if (norVandakDatark) {
-            this.sharjvel(0);
+        else if (newTileDatark) {
+            this.move(0);
             this.energy--;
         }
     }
 
-    mahanal() {
+    die() {
         for (var i in humanArr) {
             if (this.energy <= 2 && this.x == humanArr[i].x && this.y == humanArr[i].y) {
                 matrix[this.y][this.x] = 0;

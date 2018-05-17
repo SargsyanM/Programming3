@@ -15,7 +15,18 @@ socket.on("display message", function (matrix) {
         for (var x = 0; x < matrix[y].length; x++) {
 
             if (matrix[y][x] == 1) {
-                fill("#A2FF59");
+                if (currentWeather == 'winter') {
+                    fill("#d5dee5");
+                }
+                else if (currentWeather == 'spring') {
+                    fill("#A2FF59");
+                }
+                else if (currentWeather == 'autumn') {
+                    fill("#d2c458");
+                }
+                else {
+                    fill("#c8f71d");
+                }
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 0) {
@@ -29,9 +40,9 @@ socket.on("display message", function (matrix) {
             }
 
             else if (matrix[y][x] == 3) {
-                fill("#FA813B  ");
+                fill("#FA813B");
                 rect(x * side, y * side, side, side);
-            }     
+            }
 
             else if (matrix[y][x] == 4) {
                 fill("#DF0D0D");
@@ -66,7 +77,9 @@ socket.on('end', function () {
     document.body.appendChild(Dend);
       e++;
  
-    } 
+    }
+
+   
 
 });
 

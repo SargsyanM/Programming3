@@ -5,8 +5,8 @@ var random = require("./rand.js");
 
 module.exports = class Hail {
     constructor(x, y) {
-        this.x = x || Math.round(random(matrix[0].length));
-        this.y = y || Math.round(random(matrix.length));
+        this.x = x || round(random(matrix[0].length));
+        this.y = y || round(random(matrix.length));
     }
 
     
@@ -15,9 +15,9 @@ module.exports = class Hail {
         for (var i in hailArr) {
              matrix[this.y][this.x] = 0;
         }
-       
-        this.x = Math.round(random(matrix[0].length-1))
-        this.y = Math.round(random(matrix.length-1));
+
+        this.x = round(random(matrix[0].length-1))
+        this.y = round(random(matrix.length-1));
         matrix[this.y][this.x] = 7;
 
         console.log(this.x, this.y)
@@ -28,15 +28,15 @@ module.exports = class Hail {
                 break;
             }
         }
-        for (var i in xotaArr) {
-            if (this.x == xotaArr[i].x && this.y == xotaArr[i].y) {
-                xotaArr.splice(i, 1);
+        for (var i in g_eArr) {
+            if (this.x == g_eArr[i].x && this.y == g_eArr[i].y) {
+                g_eArr.splice(i, 1);
                 break;
             }
         }
-        for (var i in gishaArr) {
-            if (this.x == gishaArr[i].x && this.y == gishaArr[i].y) {
-                gishaArr.splice(i, 1);
+        for (var i in predArr) {
+            if (this.x == predArr[i].x && this.y == predArr[i].y) {
+                predArr.splice(i, 1);
                 break;
             }
         }

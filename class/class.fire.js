@@ -10,10 +10,10 @@ module.exports = class Fire extends LivingCreature{
 
 
 
-    varel() {
-        this.stanalNorKordinatner();
+    burn() {
+        this.getNewCoordinates();
         for (var j = 0; j < 3; j++) {
-            var varv = random(this.yntrelVandak(1));
+            var varv = random(this.chooseTile(1));
             if (varv) {
                 matrix[this.y][this.x] = 0;
                 this.x = varv[0];

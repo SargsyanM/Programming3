@@ -6,17 +6,26 @@ module.exports = class Grass extends LivingCreature {
 constructor(x,y){
     super(x,y);
     this.multiply = Math.round(Math.random() * 3);
+
+    // if (currentWeather = 'spring') {
+    //     this.expandReq = 12;
+    // }
+    // else if (currentWeather = 'winter') {
+    //     this.expandReq = 5;
+    // }
+    // else {
+    //     this.expandReq = 8;
+    // }
 }
 
 
-
-    bazmanal() {
+    expand() {
         this.multiply++;
-        var norVandak = random(this.yntrelVandak(0));
-        if (this.multiply >= 8 && norVandak) {
-            var norXot = new Grass(norVandak[0], norVandak[1]);
+        var newTile = random(this.chooseTile(0));
+        if (this.multiply >= 8 && newTile) {
+            var norXot = new Grass(newTile[0], newTile[1]);
             grassArr.push(norXot);
-            matrix[norVandak[1]][norVandak[0]] = 1;
+            matrix[newTile[1]][newTile[0]] = 1;
             this.multiply = 0;
         }
     }

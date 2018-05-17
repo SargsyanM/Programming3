@@ -1,22 +1,32 @@
-/*ClassForXotaker*/
+/*ClassForGrass_eater*/
 var LivingCreature = require("./parent.js");
 var random = require("./rand.js");
 
-module.exports = class Xotaker extends LivingCreature {
+
+module.exports = class Grass_eater extends LivingCreature {
     constructor(x, y, ser) {
         super(x, y, ser);
         this.energy = 5;
+        // if (currentWeather = 'winter') {
+        //     this.reproductionReq = 8;
+        // }
+        // else if (currentWeather = 'spring') {
+        //     this.reproductionReq = 3;
+        // }
+        // else {
+        //     this.reproductionReq = 5;
+        // }
     }
 
     
 
-    sharjvel(ch) {
-        this.stanalNorKordinatner();
-        var norVandak = random(this.yntrelVandak(ch));
-        if (norVandak) {
+    move(ch) {
+        this.getNewCoordinates();
+        var newTile = random(this.chooseTile(ch));
+        if (newTile) {
             matrix[this.y][this.x] = 0;
-            this.x = norVandak[0];
-            this.y = norVandak[1];
+            this.x = newTile[0];
+            this.y = newTile[1];
 
             if (this.ser == "arakan") {
                matrix[this.y][this.x] = 2; 
@@ -27,11 +37,11 @@ module.exports = class Xotaker extends LivingCreature {
         }
     }
 
-    utel() {
-        var norVandak = random(this.yntrelVandak(1));
-        var norVandakDatark = random(this.yntrelVandak(0));
-        if (norVandak) {
-            this.sharjvel(1)
+    eat() {
+        var newTile = random(this.chooseTile(1));
+        var newTileDatark = random(this.chooseTile(0));
+        if (newTile) {
+            this.move(1)
 
             for (var i in grassArr) {
                 if (this.x == grassArr[i].x && this.y == grassArr[i].y) {
@@ -41,32 +51,32 @@ module.exports = class Xotaker extends LivingCreature {
                 }
             }
         }
-        else if (norVandakDatark) {
-            this.sharjvel(0);
+        else if (newTileDatark) {
+            this.move(0);
             this.energy--;
         }
     }
 
 
-    bazmanal() {
+    reproduce() {
         if (this.ser == "arakan") {
-            var vandak = random(this.yntrelVandak(2.5))
+            var vandak = random(this.chooseTile(2.5))
             if (vandak) {
-                var norVandak = random(this.yntrelVandak(0))        
+                var newTile = random(this.chooseTile(0))        
             }
-        if (this.energy >= 5 && norVandak) {
-            var norXotaker = new Xotaker(norVandak[0], norVandak[1]);
-            xotaArr.push(norXotaker);
-            matrix[norVandak[1]][norVandak[0]] = 2;
+        if (this.energy >= 5 && newTile) {
+            var newGrassEater = new Grass_eater(newTile[0], newTile[1]);
+            g_eArr.push(newGrassEater);
+            matrix[newTile[1]][newTile[0]] = 2;
         }
     }
     }
 
-    mahanal() {
-        for (var i in xotaArr) {
-            if (this.energy <= 4 && this.x == xotaArr[i].x && this.y == xotaArr[i].y) {
+    die() {
+        for (var i in g_eArr) {
+            if (this.energy <= 4 && this.x == g_eArr[i].x && this.y == g_eArr[i].y) {
                 matrix[this.y][this.x] = 0;
-                xotaArr.splice(i, 1);
+                g_eArr.splice(i, 1);
 
             }
         }
