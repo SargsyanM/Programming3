@@ -11,6 +11,7 @@ var Predator = require('./class/class.predator.js');
 var Mistics = require('./class/class.mistics.js');
 var Hail = require('./class/class.hail.js');
 var random = require("./class/rand.js");
+var frameCount = 0;
  
 
 app.use(express.static("."));
@@ -22,7 +23,6 @@ app.get("/", function (req, res) {
 server.listen(3000, function () {
   console.log("Example is running on port 3000");
 });
-
 Number.random = function (minimum, maximum, precision) {
     minimum = minimum === undefined ? 0 : minimum;
     maximum = maximum === undefined ? 9007199254740992 : maximum; //900.. is the maximum number that var can keep
@@ -33,10 +33,6 @@ Number.random = function (minimum, maximum, precision) {
     return random.toFixed(precision);
 }
 
-var weather = ['spring', 'summer', 'autumn', 'winter'];
-var w = Number.random(0,3,0);
-var currentWeather;
-var time = 0;
 
 var temp;
 var m_size = 50;
@@ -45,7 +41,7 @@ global.matrix = [];
 for (var k = 0; k < m_size; k++) {
     matrix[k] = [];
 }
-var p = [10, 68, 5, 4, 3, 2, 4, 4]; //these are the percents of characters in the world
+var p = [10, 65, 5, 4, 5, 5, 2, 4]; //these are the percents of characters in the world
 //10% empty, 76% grass, 5% grass eaters, 4% predators, 3% fire, 2% humans
 
 for (var i = 0; i < m_size; i++) {
@@ -71,9 +67,9 @@ for (var i = 0; i < m_size; i++) {
             matrix[i][j] = 6;
         }
 
-        // else if (temp < 100 - -p[4] - p[5] - p[6]) {
-        // matrix[i][j] = 7;
-        // }
+        else if (temp < 100 - -p[4] - p[5] - p[6]) {
+        matrix[i][j] = 7;
+        }
 
         else {
             matrix[i][j] = 5;
@@ -91,7 +87,7 @@ global.predArr = [];
 global.fireArr = [];
 global.humanArr = [];
 global.mistArr = [];
-//global.hailArr = [];
+global.hailArr = [];
 
 var numgrass = 0;
 var numpred = 0 ;
@@ -135,37 +131,27 @@ for (global. y = 0; y < matrix.length; y++)
                 mistArr.push(mistics);
             } 
 
-            // else if (matrix[y][x] == 7) {
-            //     var karkut = new Hail(x, y);
-            //     mistArr.push(karkut);
-            // } 
+            else if (matrix[y][x] == 7) {
+                var karkut = new Hail(x, y);
+                hailArr.push(karkut);
+            } 
 
 
 io.on('connection', function(socket){
 
   setInterval(function(){
 
-    currentWeather = weather[w];
-    time++;
-   //console.log(time);
-    if (time == 5) {
-        w++;
-        if (w == 4) {
-            w = 0;
-        }
-        time = 0;
-    }
-    console.log(currentWeather);
+    frameCount++;
 
     if (humanArr.length == 0) {
         io.sockets.emit('end');
     }
 
-    if (currentWeather != 'winter') {
+   // if (currentWeather != 'winter') {
         for (var i in grassArr) {
             grassArr[i].expand();
         }
-    }
+    //}
 
     for (var j in g_eArr) {
         g_eArr[j].eat();
@@ -194,6 +180,10 @@ io.on('connection', function(socket){
         
         mistArr[l].utel();
         mistArr[l].mahanal();
+    }
+
+     for (var o in hailArr) {
+        frameCount%4==0
     }
 
     io.sockets.emit("display message", matrix);

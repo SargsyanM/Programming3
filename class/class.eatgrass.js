@@ -1,22 +1,23 @@
 /*ClassForGrass_eater*/
 var LivingCreature = require("./parent.js");
 var random = require("./rand.js");
+var currentWeather = require("./weather.js")
 
 
 module.exports = class Grass_eater extends LivingCreature {
     constructor(x, y, ser) {
         super(x, y, ser);
         this.energy = 5;
-        this.reproductionReq = 6;
-        // if (currentWeather = 'winter') {
-        //     this.reproductionReq = 8;
-        // }
-        // else if (currentWeather = 'spring') {
-        //     this.reproductionReq = 3;
-        // }
-        // else {
-        //     this.reproductionReq = 5;
-        // }
+
+        if (currentWeather = 'winter') {
+            this.reproductionReq = 6;
+        }
+        else if (currentWeather = 'spring') {
+            this.reproductionReq = 2;
+        }
+        else {
+            this.reproductionReq = 3;
+        }
     }
 
     
@@ -65,7 +66,7 @@ module.exports = class Grass_eater extends LivingCreature {
             if (vandak) {
                 var newTile = random(this.chooseTile(0))        
             }
-        if (this.energy >= 5 && newTile) {
+        if (this.energy >= this.reproductionReq && newTile) {
             var newGrassEater = new Grass_eater(newTile[0], newTile[1]);
             g_eArr.push(newGrassEater);
             matrix[newTile[1]][newTile[0]] = 2;

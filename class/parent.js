@@ -1,4 +1,5 @@
 /*ClassforLivingCreature*/
+
 module.exports = class LivingCreature {
     constructor(x, y, ser) {
         this.x = x;

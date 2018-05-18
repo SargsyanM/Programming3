@@ -2,6 +2,22 @@ var socket = io.connect('http://localhost:3000');
 var side = 20;
 var e = 0;
 
+Number.random = function (minimum, maximum, precision) {
+    minimum = minimum === undefined ? 0 : minimum;
+    maximum = maximum === undefined ? 9007199254740992 : maximum; //900.. is the maximum number that var can keep
+    precision = precision === undefined ? 0 : precision; //number of numbers after 0
+
+    var random = Math.random() * (maximum - minimum) + minimum;
+
+    return random.toFixed(precision);
+}
+
+var weather = ['spring', 'summer', 'autumn', 'winter'];
+var w = Number.random(0,3,0);
+var currentWeather ;
+var time = 0;
+
+   
 
 function setup() {
     createCanvas(500, 500);
@@ -10,7 +26,21 @@ function setup() {
 
 socket.on("display message", function (matrix) {
 
-    console.log(matrix);
+   console.log(matrix);
+
+     currentWeather = weather[w];
+    time++;
+
+   console.log(currentWeather);
+
+    if (time == 5) {
+        w++;
+        if (w == 4) {
+            w = 0;
+        }
+        time = 0;
+    }
+
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
 

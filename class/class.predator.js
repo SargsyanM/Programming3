@@ -1,21 +1,22 @@
 /*ClassForPredator*/
 var LivingCreature = require("./parent.js");
 var random = require("./rand.js");
+var currentWeather = require("./weather.js")
 
 module.exports = class Predator extends LivingCreature {
     constructor(x, y, ser) {
         super(x, y, ser);
         this.energy = 5;
-        this.reproductionReq =56;
-        // if (currentWeather = 'winter') {
-        //     this.reproductionReq = 12;
-        // }
-        // else if (currentWeather = 'spring') {
-        //     this.reproductionReq = 7;
-        // }
-        // else {
-        //     this.reproductionReq = 10;
-        // }  
+
+        if (currentWeather = 'winter') {
+            this.reproductionReq = 10;
+        }
+        else if (currentWeather = 'spring') {
+            this.reproductionReq = 5;
+        }
+        else {
+            this.reproductionReq = 7;
+        }  
     }
 
     
@@ -87,7 +88,7 @@ module.exports = class Predator extends LivingCreature {
 
     die() {
         for (var i in predArr) {
-            if (this.energy <= 4 && this.x == predArr[i].x && this.y == predArr[i].y) {
+            if (this.energy <= this.reproductionReq && this.x == predArr[i].x && this.y == predArr[i].y) {
                 matrix[this.y][this.x] = 0;
                 predArr.splice(i, 1);
             }
