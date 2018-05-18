@@ -41,7 +41,7 @@ var time = 0;
 var temp;
 var m_size = 50;
 
-var matrix = [];
+global.matrix = [];
 for (var k = 0; k < m_size; k++) {
     matrix[k] = [];
 }

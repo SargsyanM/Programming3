@@ -6,6 +6,7 @@ module.exports = class Predator extends LivingCreature {
     constructor(x, y, ser) {
         super(x, y, ser);
         this.energy = 5;
+        this.reproductionReq =56;
         // if (currentWeather = 'winter') {
         //     this.reproductionReq = 12;
         // }
@@ -76,7 +77,7 @@ module.exports = class Predator extends LivingCreature {
             if (tile) {
                 var newTile = random(this.chooseTile(0))
             }
-            if (this.energy >= 10 && newTile) {
+            if (this.energy >= this.reproductionReq && newTile) {
                 var newPredator = new Predator(newTile[0], newTile[1]);
                 predArr.push(newPredator);
                 matrix[newTile[1]][newTile[0]] = 3;

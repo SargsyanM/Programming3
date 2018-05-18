@@ -82,4 +82,28 @@
 26- This is the Number of Grasseaters
 35-This is the Number of Predators412-This is the Number of Grasses
 42- This is the Number of Grasseaters
-19-This is the Number of Predators
+19-This is the Number of Predators1685-This is the Number of Grasses
+139- This is the Number of Grasseaters
+233-This is the Number of Predators1735-This is the Number of Grasses
+134- This is the Number of Grasseaters
+224-This is the Number of Predators1712-This is the Number of Grasses
+113- This is the Number of Grasseaters
+248-This is the Number of Predators1713-This is the Number of Grasses
+122- This is the Number of Grasseaters
+246-This is the Number of Predators1681-This is the Number of Grasses
+116- This is the Number of Grasseaters
+270-This is the Number of Predators1741-This is the Number of Grasses
+146- This is the Number of Grasseaters
+243-This is the Number of Predators1727-This is the Number of Grasses
+134- This is the Number of Grasseaters
+205-This is the Number of Predators1677-This is the Number of Grasses
+134- This is the Number of Grasseaters
+263-This is the Number of Predators1705-This is the Number of Grasses
+118- This is the Number of Grasseaters
+247-This is the Number of Predators1689-This is the Number of Grasses
+126- This is the Number of Grasseaters
+257-This is the Number of Predators1687-This is the Number of Grasses
+137- This is the Number of Grasseaters
+248-This is the Number of Predators1722-This is the Number of Grasses
+137- This is the Number of Grasseaters
+244-This is the Number of Predators

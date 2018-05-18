@@ -7,6 +7,7 @@ module.exports = class Grass_eater extends LivingCreature {
     constructor(x, y, ser) {
         super(x, y, ser);
         this.energy = 5;
+        this.reproductionReq = 6;
         // if (currentWeather = 'winter') {
         //     this.reproductionReq = 8;
         // }
@@ -74,7 +75,7 @@ module.exports = class Grass_eater extends LivingCreature {
 
     die() {
         for (var i in g_eArr) {
-            if (this.energy <= 4 && this.x == g_eArr[i].x && this.y == g_eArr[i].y) {
+            if (this.energy <= this.reproductionReq && this.x == g_eArr[i].x && this.y == g_eArr[i].y) {
                 matrix[this.y][this.x] = 0;
                 g_eArr.splice(i, 1);
 
