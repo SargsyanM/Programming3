@@ -24,7 +24,7 @@ constructor(x,y){
     expand() {
         this.multiply++;
         var newTile = random(this.chooseTile(0));
-        if (this.multiply >= 7 && newTile) {
+        if (this.multiply >= 9 && newTile) {
             var norXot = new Grass(newTile[0], newTile[1]);
             grassArr.push(norXot);
             matrix[newTile[1]][newTile[0]] = 1;
