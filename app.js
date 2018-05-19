@@ -178,12 +178,15 @@ io.on('connection', function(socket){
 
     for (var l in mistArr) {
         
-        mistArr[l].utel();
-        mistArr[l].mahanal();
+        mistArr[l].eat();
+        mistArr[l].die();
     }
 
      for (var o in rainArr) {
-        frameCount%4==0
+         if(frameCount%4==0){
+            rainArr[o].hit();
+         }
+        
     }
 
     io.sockets.emit("display message", matrix);
