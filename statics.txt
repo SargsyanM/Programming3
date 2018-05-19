@@ -290,4 +290,6 @@
 127- This is the Number of Grasseaters
 288-This is the Number of Predators1633-This is the Number of Grasses
 137- This is the Number of Grasseaters
-276-This is the Number of Predators
+276-This is the Number of Predators1736-This is the Number of Grasses
+136- This is the Number of Grasseaters
+92-This is the Number of Predators

@@ -41,6 +41,13 @@ socket.on("display message", function (matrix) {
         time = 0;
     }
 
+    
+    fill(254);
+    rect(0, 1000, 1000, 100);
+    textSize(30);
+    fill(0);
+    text("The current weather is ", 20, 1050);
+
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
 

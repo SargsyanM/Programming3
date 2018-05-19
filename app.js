@@ -41,7 +41,7 @@ global.matrix = [];
 for (var k = 0; k < m_size; k++) {
     matrix[k] = [];
 }
-var p = [10, 65, 5, 4, 5, 5, 2, 4]; //these are the percents of characters in the world
+var p = [10, 68, 5, 4, 3, 2, 4, 4]; //these are the percents of characters in the world
 //10% empty, 76% grass, 5% grass eaters, 4% predators, 3% fire, 2% humans
 
 for (var i = 0; i < m_size; i++) {
@@ -54,12 +54,12 @@ for (var i = 0; i < m_size; i++) {
             matrix[i][j] = 1;
         }
         else if (temp < p[0] + p[1] + p[2]) {
-            matrix[i][j] = 2;
+            matrix[i][j] = 2 ;
+        }
+        else if (temp < p[0] + p[1] + p[2] + p[3]) {
+            matrix[i][j] = 3 ;
         }
         else if (temp < 100 - p[3] - p[4]) {
-            matrix[i][j] = 3;
-        }
-        else if (temp < 100 - p[4]) {
             matrix[i][j] = 4;
         }
 
@@ -68,7 +68,7 @@ for (var i = 0; i < m_size; i++) {
         }
 
         else if (temp < 100 - -p[4] - p[5] - p[6]) {
-        matrix[i][j] = 7;
+            matrix[i][j] = 7;
         }
 
         else {
