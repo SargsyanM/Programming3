@@ -1,9 +1,9 @@
-/*ClaasForHail*/
+/*ClaasFoRain*/
 var LivingCreature = require("./parent.js");
 var random = require("./rand.js");
 
 
-module.exports = class Hail {
+module.exports = class Rain {
     constructor(x, y) {
         this.x = x || Math.round(random(matrix[0].length));
         this.y = y || Math.round(random(matrix.length));
@@ -12,7 +12,7 @@ module.exports = class Hail {
 
 
     hit() {
-        for (var i in hailArr) {
+        for (var i in rainArr) {
             matrix[this.y][this.x] = 0;
 }
             this.x = Math.round(random(matrix[0].length - 1));

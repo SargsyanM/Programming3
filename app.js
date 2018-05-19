@@ -9,7 +9,7 @@ var Fire = require('./class/class.fire.js');
 var Human = require('./class/class.human.js');
 var Predator = require('./class/class.predator.js');
 var Mistics = require('./class/class.mistics.js');
-var Hail = require('./class/class.hail.js');
+var Rain = require('./class/class.rain.js');
 var random = require("./class/rand.js");
 var frameCount = 0;
  
@@ -87,7 +87,7 @@ global.predArr = [];
 global.fireArr = [];
 global.humanArr = [];
 global.mistArr = [];
-global.hailArr = [];
+global.rainArr = [];
 
 var numgrass = 0;
 var numpred = 0 ;
@@ -132,8 +132,8 @@ for (global. y = 0; y < matrix.length; y++)
             } 
 
             else if (matrix[y][x] == 7) {
-                var karkut = new Hail(x, y);
-                hailArr.push(karkut);
+                var rain = new Rain(x, y);
+                rainArr.push(rain);
             } 
 
 
@@ -182,7 +182,7 @@ io.on('connection', function(socket){
         mistArr[l].mahanal();
     }
 
-     for (var o in hailArr) {
+     for (var o in rainArr) {
         frameCount%4==0
     }
 
