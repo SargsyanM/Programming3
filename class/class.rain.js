@@ -13,7 +13,7 @@ module.exports = class Rain {
 
 
     hit() {
-        console.log(this.x, this.y);
+      //  console.log(this.x, this.y);
 
         for (var i in rainArr) {
             matrix[this.y][this.x] = 0;

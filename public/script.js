@@ -30,9 +30,7 @@ socket.on("display message", function (matrix) {
 
      currentWeather = weather[w];
     time++;
-
-   console.log(currentWeather);
-
+   //console.log(currentWeather);
     if (time == 5) {
         w++;
         if (w == 4) {
@@ -42,12 +40,9 @@ socket.on("display message", function (matrix) {
     }
 
     
-    fill(254);
-    rect(0, 1000, 1000, 100);
-    textSize(30);
-    fill(0);
-    text("The current weather is ", 20, 1050);
 
+    document.getElementById('weather').innerText ="The Current Weater is " + currentWeather;
+ 
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
 
