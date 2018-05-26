@@ -8,8 +8,6 @@ module.exports = class Fire extends LivingCreature{
         this.energy = 5;
     }
 
-
-
     burn() {
         this.getNewCoordinates();
         for (var j = 0; j < 3; j++) {

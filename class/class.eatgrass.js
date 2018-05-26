@@ -3,7 +3,6 @@ var LivingCreature = require("./parent.js");
 var random = require("./rand.js");
 var currentWeather = require("./weather.js")
 
-
 module.exports = class Grass_eater extends LivingCreature {
     constructor(x, y, ser) {
         super(x, y, ser);
@@ -19,8 +18,6 @@ module.exports = class Grass_eater extends LivingCreature {
             this.reproductionReq = 3;
         }
     }
-
-    
 
     move(ch) {
         this.getNewCoordinates();

@@ -6,7 +6,6 @@ module.exports = function Weather() {
 
     currentWeather = weather[w];
     time++;
-
     console.log(currentWeather);
 
     if (time == 5) {
@@ -16,6 +15,5 @@ module.exports = function Weather() {
         }
         time = 0;
     }
-
 }
 

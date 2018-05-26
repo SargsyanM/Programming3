@@ -1,6 +1,6 @@
 var socket = io.connect('http://localhost:3000');
 var side = 20;
-var e = 0;
+var f = 0;
 
 Number.random = function (minimum, maximum, precision) {
     minimum = minimum === undefined ? 0 : minimum;
@@ -17,8 +17,6 @@ var w = Number.random(0,3,0);
 var currentWeather ;
 var time = 0;
 
-   
-
 function setup() {
     createCanvas(500, 500);
     background("#E8E4E4");
@@ -33,13 +31,13 @@ socket.on("display message", function (matrix) {
    //console.log(currentWeather);
     if (time == 5) {
         w++;
+
         if (w == 4) {
             w = 0;
         }
+
         time = 0;
     }
-
-    
 
     document.getElementById('weather').innerText ="The Current Weater is " + currentWeather;
  
@@ -101,17 +99,15 @@ socket.on("display message", function (matrix) {
 });
 
 socket.on('end', function () {
-    if (e==0) {
+    if (f==0) {
             console.log("done");
     remove();
     var Dend = document.createElement("img");
-    Dend.setAttribute('src', 'https://fanart.tv/fanart/tv/78871/clearlogo/gameover-78871.png');
+    Dend.setAttribute('src', 'https://pre00.deviantart.net/5e88/th/pre/f/2016/027/b/4/80s_retro_game_over_wallpaper_by_leepiin-d9phs9b.png');
     document.body.appendChild(Dend);
-      e++;
+      f++;
  
     }
-
-   
 
 });
 

@@ -22,8 +22,6 @@ module.exports = class LivingCreature {
         ];
     }
 
-    
-
     chooseTile(ch) {
        this.getNewCoordinates();
         var found = [];

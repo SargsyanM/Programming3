@@ -8,7 +8,6 @@ module.exports = class Mistics extends LivingCreature {
         this.energy = 10;
     }
 
-
     getNewCoordinates() {
         this.directions = [
             [this.x - 1, this.y - 1],

@@ -5,4 +5,5 @@ function random(arr){
     }
     return false;
 }
+
 module.exports = random;

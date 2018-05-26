@@ -2,18 +2,13 @@
 var LivingCreature = require("./parent.js");
 var random = require("./rand.js");
 
-
 module.exports = class Rain {
     constructor(x, y) {
         this.x = x || Math.round(Math.random() * (matrix[0].length));
         this.y = y || Math.round(Math.random() * (matrix.length));
     }
 
-
-
-
     hit() {
-      //  console.log(this.x, this.y);
 
         for (var i in rainArr) {
             matrix[this.y][this.x] = 0;
@@ -21,8 +16,6 @@ module.exports = class Rain {
         this.x = Math.round(Math.random() * (matrix[0].length - 1));
         this.y = Math.round(Math.random() * (matrix.length - 1));
         matrix[this.y][this.x] = 7;
-
-        //console.log(this.x, this.y)
 
         for (var i in grassArr) {
             if (this.x == grassArr[i].x && this.y == grassArr[i].y) {
@@ -63,8 +56,5 @@ module.exports = class Rain {
                 break;
             }
         }
-
-
-
     }
 }

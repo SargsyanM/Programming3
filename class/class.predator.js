@@ -19,8 +19,6 @@ module.exports = class Predator extends LivingCreature {
         }  
     }
 
-    
-
     move(ch) {
         this.getNewCoordinates();
         var newTile = random(this.chooseTile(ch));

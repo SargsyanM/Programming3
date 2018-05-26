@@ -3,12 +3,10 @@ var LivingCreature = require("./parent.js");
 var random = require("./rand.js");
 
 module.exports = class Human extends LivingCreature {
-    constructor(x, y, ser) {
-        super(x, y, ser);
+    constructor(x, y) {
+        super(x, y);
         this.energy = 10;
     }
-
-    
 
     move(ch) {
         this.getNewCoordinates();
@@ -76,19 +74,6 @@ module.exports = class Human extends LivingCreature {
                 }
             }
         }
-
-        //  else if (newMist) {
-        //     this.move(6)
-
-        //     for (var i in mistArr) {
-        //         if (this.x == mistArr[i].x && this.y == msitArr[i].y) {
-        //             mistArr.splice(i, 1);
-        //             this.energy -= 4;
-        //             break;
-        //         }
-        //     }
-        // }
-
 
         else if (newTileDatark) {
             this.move(0);
