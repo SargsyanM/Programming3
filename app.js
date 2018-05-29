@@ -198,5 +198,5 @@ var fs = require('fs');
 
 if (true) {
     var file = "statics.json";
-    fs.appendFileSync(file, numgrass + "-This is the Number of Grasses" + '\n' + numeat + "- This is the Number of Grasseaters" + '\n' + numpred + "-This is the Number of Predators");
+    fs.writeFileSync(file, numgrass + "-This is the Number of Grasses " + '\n' + numeat + "-This is the Number of Grasseaters " + '\n' + numpred + "-This is the Number of Predators ");
 }   

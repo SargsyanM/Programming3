@@ -100,8 +100,8 @@ socket.on("display message", function (matrix) {
 
 socket.on('end', function () {
     if (f==0) {
-            console.log("done");
     remove();
+
     var Dend = document.createElement("img");
     Dend.setAttribute('src', 'https://pre00.deviantart.net/5e88/th/pre/f/2016/027/b/4/80s_retro_game_over_wallpaper_by_leepiin-d9phs9b.png');
     document.body.appendChild(Dend);
